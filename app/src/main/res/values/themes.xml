@@ -1,9 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Główny motyw aplikacji - wymuszamy ciemną kolorystykę -->
     <style name="Base.Theme.GamePedia" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#D0BCFF</item>
+        <item name="android:windowBackground">#121212</item>
+        <item name="colorSurface">#1E1E1E</item>
+        <item name="colorOnSurface">#E6E6E6</item>
     </style>
 
     <style name="Theme.GamePedia" parent="Base.Theme.GamePedia" />
+
+    <!-- Styl dla zaokrąglonych okładek -->
+    <style name="RoundedImageView">
+        <item name="cornerSize">16dp</item>
+    </style>
 </resources>

@@ -46,7 +46,14 @@ class GameAdapter(private val gry: List<Game>) :
             val intent = Intent(context, GameDetailsActivity::class.java).apply {
                 putExtra("GAME_EXTRA", gra)
             }
-            context.startActivity(intent)
+
+
+            val options = androidx.core.app.ActivityOptionsCompat.makeCustomAnimation(
+                context,
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
+            context.startActivity(intent, options.toBundle())
         }
     }
 

@@ -1,6 +1,6 @@
 [versions]
 # Wtyczki
-android-gradle-plugin = "8.2.0"
+android-gradle-plugin = "8.13.2"
 kotlin-gradle-plugin = "1.9.22"
 
 # Zależności

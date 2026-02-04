@@ -16,12 +16,12 @@ class GameDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_details)
 
-        // Referencje do widoków
+
         val gameCover: ImageView = findViewById(R.id.gameCoverDetails)
         val gameTitle: TextView = findViewById(R.id.gameTitleDetails)
         val gameDate: TextView = findViewById(R.id.gameDateDetails)
         val gameSummary: TextView = findViewById(R.id.gameSummary)
-        val backButton: Button = findViewById(R.id.backButton)
+        val backButton: com.google.android.material.floatingactionbutton.FloatingActionButton = findViewById(R.id.backButton)
 
 
         val gra: Game? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -31,7 +31,7 @@ class GameDetailsActivity : AppCompatActivity() {
             intent.getParcelableExtra("GAME_EXTRA")
         }
 
-        // Ustawienie danych w widokach
+
         gra?.let {
             gameTitle.text = it.nazwa
             gameDate.text = it.dataWydania?.let { timestamp ->
