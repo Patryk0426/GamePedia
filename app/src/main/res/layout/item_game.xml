@@ -12,8 +12,7 @@
     app:strokeWidth="1dp"
     app:strokeColor="#333333">
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp">
@@ -27,11 +26,14 @@
             app:shapeAppearanceOverlay="@style/RoundedImageView" />
 
         <LinearLayout
+            android:id="@+id/textContainer"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/gameCover"
+            android:layout_toStartOf="@+id/btnAddToList"
             android:paddingStart="16dp"
-            android:gravity="center_vertical">
+            android:layout_centerVertical="true">
 
             <TextView
                 android:id="@+id/gameTitle"
@@ -52,5 +54,16 @@
                 android:textColor="#A0A0A0"
                 android:text="2024-01-01"/>
         </LinearLayout>
-    </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddToList"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:icon="@android:drawable/ic_input_add"
+            app:iconTint="#D0BCFF" />
+
+    </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

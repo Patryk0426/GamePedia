@@ -8,16 +8,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.button.MaterialButton
 import java.text.SimpleDateFormat
 import java.util.*
 
-class GameAdapter(private val gry: List<Game>) :
-    RecyclerView.Adapter<GameAdapter.WidokPosiadaczaGry>() {
+class GameAdapter(
+    private val gry: List<Game>,
+    private val onAddClick: ((Game) -> Unit)? = null
+) : RecyclerView.Adapter<GameAdapter.WidokPosiadaczaGry>() {
 
     class WidokPosiadaczaGry(widok: View) : RecyclerView.ViewHolder(widok) {
         val tytul: TextView = widok.findViewById(R.id.gameTitle)
         val data: TextView = widok.findViewById(R.id.gameDate)
         val okladka: ImageView = widok.findViewById(R.id.gameCover)
+        val btnAdd: MaterialButton = widok.findViewById(R.id.btnAddToList)
     }
 
     override fun onCreateViewHolder(rodzic: ViewGroup, typWidoku: Int): WidokPosiadaczaGry {
@@ -40,13 +44,15 @@ class GameAdapter(private val gry: List<Game>) :
             posiadacz.okladka.setImageResource(android.R.color.darker_gray)
         }
 
+        posiadacz.btnAdd.setOnClickListener {
+            onAddClick?.invoke(gra)
+        }
 
         posiadacz.itemView.setOnClickListener {
             val context = posiadacz.itemView.context
             val intent = Intent(context, GameDetailsActivity::class.java).apply {
                 putExtra("GAME_EXTRA", gra)
             }
-
 
             val options = androidx.core.app.ActivityOptionsCompat.makeCustomAnimation(
                 context,
